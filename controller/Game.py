@@ -9,6 +9,10 @@ from models.movements.Movement import Movement
 
 class Game:
     def __init__(self, player1: 'Character', player2: 'Character'):
+
+        self.player1= player1
+        self.player2= player2
+
         self.player1Disposable = self.player1.eventNow.subscribe()
         self.player2Disposable = self.player2.eventNow.subscribe()
 
@@ -42,6 +46,15 @@ class Game:
 
 
         return "{} recibió daño".format(playerReceive.__str__())
+
+    def ifLiveCharacter(self) -> bool:
+
+        if self.player1.energyNow == 0 or self.player2.energyNow == 0:
+            return False
+
+        else:
+            return True
+
 
 
 
