@@ -1,9 +1,10 @@
 from models.events.Event import Event
 
-
+from controller.Game import *
 
 class CharacterDie(Event):
 
-    def startEvent(self):
-        pass
+    def visitGame(self, game: 'Game'):
+        game.createJsonGame()
+
         

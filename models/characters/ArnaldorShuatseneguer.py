@@ -7,6 +7,6 @@ from models.movements.BasicAttack import Arriba, Abajo, Derecha, Izquierda, Puñ
 class ArnoldShuatseneguer(Character):
 
     def __init__(self):
-        super().__init__("Arnold Shuatseneguer", 6, [Arriba(), Abajo(), Derecha(), Izquierda()]  , [Taladoken2(),Remuyuken2()] , [Puño(), Patada()] )
+        super().__init__("Arnold Shuatseneguer", 6, [Arriba(), Abajo(), Derecha(), Izquierda()], [Taladoken2(), Remuyuken2()], [Puño(), Patada()])
 
 

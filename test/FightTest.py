@@ -10,7 +10,11 @@ def RecibeDanage(playerAttack: 'Character' ):
 
     lifeNow= player2.energyNow
 
-    for a in range(3):
+    player2.eventNow.subscribe(
+        lambda event: print(event)
+    )
+
+    for a in range(7):
         playerAttack.attack(player2, Puño())
         print('Life player 2;', player2.energyNow)
 
