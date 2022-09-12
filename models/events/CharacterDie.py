@@ -1,8 +1,8 @@
-models.events.Event import Event
+from models.events.Event import Event
 
 
 
-class CharacterDie(Evento):
+class CharacterDie(Event):
 
     def startEvent(self):
         pass

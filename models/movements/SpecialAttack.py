@@ -10,7 +10,7 @@ class Taladoken(Movement):
         return "DSDP"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 3
 
@@ -27,7 +27,7 @@ class Taladoken2(Movement):
         return "ASAP"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 2
 
@@ -44,7 +44,7 @@ class Remuyuken(Movement):
         return "SDK"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 2
 
@@ -61,7 +61,7 @@ class Remuyuken2(Movement):
         return "SAK"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 3
 

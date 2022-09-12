@@ -10,7 +10,7 @@ class Puño(Movement):
         return "P"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 1
 
@@ -29,7 +29,7 @@ class Patada(Movement):
         return "K"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 1
 
@@ -48,7 +48,7 @@ class Arriba(Movement):
         return "W"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 0
 
@@ -66,7 +66,7 @@ class Abajo(Movement):
         return "S"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 0
 
@@ -84,7 +84,7 @@ class Izquierda(Movement):
         return "A"
 
 
-    def getEnergyPoints(self) -> int:
+    def getAttackEnergyPoints(self) -> int:
 
         return 0
 
@@ -100,7 +100,7 @@ class Derecha(Movement):
             return "D"
     
     
-        def getEnergyPoints(self) -> int:
+        def getAttackEnergyPoints(self) -> int:
     
             return 0
     

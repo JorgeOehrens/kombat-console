@@ -16,20 +16,21 @@ class Character(metaclass=abc.ABCMeta):
         self.eventNow: Subject['Event'] = Subject() 
 
     
-    def getAttackEnergyPoints(self) -> int:
-        
-        return self.movements[0].getAttackEnergyPoints()
+    def getAttackEnergyPoints(self,character: 'Character' ,movement: 'Movement') -> int:
 
-    def getDanage(self, character: 'Character') -> None:
+        print(movement.getAttackEnergyPoints())
+        return movement.getAttackEnergyPoints()
+
+    def getDanage(self, character: 'Character', movement: 'Movement') -> None:
         
-        self.energyNow -= character.getAttackEnergyPoints()
+        self.energyNow -= character.getAttackEnergyPoints(character, movement)
 
         if self.energyNow < 0:
             self.energyNow = 0
             self.die()
 
-    def attack(self, character: 'Character') -> None:
-        character.getDanage(self)
+    def attack(self, character: 'Character', movement: 'Movement') -> None:
+        character.getDanage(self, movement)
 
 
     def die(self) -> None:
