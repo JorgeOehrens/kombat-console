@@ -12,6 +12,7 @@ def RecibeDanage(playerAttack: 'Character' ):
 
     for a in range(3):
         playerAttack.attack(player2, Puño())
+        print('Life player 2;', player2.energyNow)
 
     assert player2.energyNow < lifeNow
 

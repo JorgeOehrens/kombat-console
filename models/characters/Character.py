@@ -18,7 +18,6 @@ class Character(metaclass=abc.ABCMeta):
     
     def getAttackEnergyPoints(self,character: 'Character' ,movement: 'Movement') -> int:
 
-        print(movement.getAttackEnergyPoints())
         return movement.getAttackEnergyPoints()
 
     def getDanage(self, character: 'Character', movement: 'Movement') -> None:
