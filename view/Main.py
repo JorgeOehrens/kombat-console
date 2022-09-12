@@ -1,14 +1,17 @@
+from view.Combat import Combat
+from models.characters.Tonynstallone import *
+from models.characters.ArnaldorShuatseneguer import *
+
 from controller.Game import Game
-from models.characters.Tonynstallone import TonynStallone
-from models.characters.ArnaldorShuatseneguer import ArnoldShuatseneguer
 
 class Main:
     def __init__(self):
+        battle = open("Fight/fight1.json", "r")
 
-        self.game= Game( TonynStallone(), ArnoldShuatseneguer())
+        self.game= Game( TonynStallone(), ArnoldShuatseneguer(),battle)
 
     def start(self) -> None:
-        self.combat()
+        self.Combat()
         self.characterWinner()
         self.game.start()
 
