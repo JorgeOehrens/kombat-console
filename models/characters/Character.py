@@ -6,17 +6,19 @@ from rx.subject import Subject
 from models.events.CharacterDie import CharacterDie
 
 class Character(metaclass=abc.ABCMeta):
-    def __init__(self, name: str, energy: int, movement : 'Movement') -> None:
+    def __init__(self, name: str, energy: int, movements : array) -> None:
         self.name = name
         self.energy = energy
         self.energyNow= energy
-        self.movements = [movement]
+        self.movements = movements
         self.eventNow: Subject['Event'] = Subject()
 
     
     def getAttackEnergyPoints(self) -> int:
+        
         return self.movements[0].getAttackEnergyPoints()
-    
+
+
 
     def getDanage(self, character: 'Character') -> None:
         

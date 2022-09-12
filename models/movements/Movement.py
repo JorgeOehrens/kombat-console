@@ -9,7 +9,12 @@ class Movement(metaclass=abc.ABCMeta):
 
     def getAttackEnergyPoints(self) -> int:
             pass
-    
+
+    @abc.abstractmethod
+
+    def getComand(self) -> str:
+            pass
+
     @abc.abstractmethod
 
     def __str__(self) -> str:

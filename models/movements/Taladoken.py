@@ -4,6 +4,12 @@ from models.movements.Movement import Movement
 
 class Taladoken(Movement):
 
+
+    def getComand(self) -> str:
+
+        return "DSDP"
+
+
     def getEnergyPoints(self) -> int:
 
         return 3

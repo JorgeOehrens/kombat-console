@@ -1,9 +1,9 @@
-models.events.Evento import Evento
+models.events.Event import Event
 
 
 
 class CharacterDie(Evento):
 
     def startEvent(self):
-        passs
+        pass
         

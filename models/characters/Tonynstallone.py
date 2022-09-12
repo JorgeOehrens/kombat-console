@@ -3,10 +3,10 @@ from models.movements.Taladoken import Taladoken
 
 
 
-class   TonynStallone(Character):
+class TonynStallone(Character):
 
     def __init__(self):
-        super().__init__("Tony n' Stallone", 100)
+        super().__init__("Tony n' Stallone", 6)
         self.movements.append(Taladoken())
 
 
