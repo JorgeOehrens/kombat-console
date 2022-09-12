@@ -3,7 +3,7 @@ from models.characters.tonynstallone import TonynStallone
 
 
 
-def RecipeDanage()
+def RecibeDanage()
 
 
 
