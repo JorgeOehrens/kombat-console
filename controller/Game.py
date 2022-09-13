@@ -66,6 +66,7 @@ class Game:
         else:
             print('Parte ', self.player2.name)
             c=0
+            c2=0
             firstPlayer=self.player2
             while self.player1.energyNow != 0 or self.player1.energyNow != 0:
 
@@ -94,6 +95,8 @@ class Game:
                         elif attack == "K":
                             str= str + ' y patea'
                         print(str)
+                    c+=1
+                    firstPlayer=self.player1
 
 
 
@@ -102,11 +105,36 @@ class Game:
 
 
                 else:
-                    movement = player1Movements[c]
-                    attack = player1Attack[c]
+                    movement = player1Movements[c2]
+                    attack = player1Attack[c2]
                     combination = movement + attack
-                    print(combination)
-                c+=1
+                    if combination == "SDK":
+                        print(self.player1.name, 'conecta un', Action.REMUYUKEN.description())
+
+                    elif combination == "DSDP":
+                        print(self.player1.name, 'conecta un', Action.TALADOKEN.description())
+
+                    else:
+                        if movement == "W":
+                            str = self.player1.name + ' salta '
+                        elif movement == "S":
+                            str = self.player1.name + ' se agacha'
+                        elif movement == "A":
+                            str = self.player1.name + ' avanza a la izquierda'
+                        else:
+                            str = self.player1.name + ' avanza a la derecha'
+
+                        if attack == "P":
+                            str = str + ' y golpea'
+                        elif attack == "K":
+                            str = str + ' y patea'
+                        else:
+                            str=str
+                        print(str)
+                    firstPlayer = self.player2
+
+                    c2+=1
+
 
 
 
