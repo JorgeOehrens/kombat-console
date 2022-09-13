@@ -5,6 +5,8 @@ from models.events.Event import *
 from models.movements.Movement import *
 import json
 from typing import List
+from models.movements.BasicAttack import *
+from models.movements.SpecialAttack import *
 
 from view.Action import Action
 class Game:
@@ -20,6 +22,17 @@ class Game:
         self.nextMovement: Subject[str]= Subject()
 
         self.battle = battle
+
+        lifeNowPlayer1 = self.player1.energyNow
+        lifeNowPlayer2 = self.player2.energyNow
+
+
+        player2.eventNow.subscribe(
+            lambda event: print(event)
+        )
+        player1.eventNow.subscribe(
+            lambda event: print(event)
+        )
 
 
         content = battle.read()
@@ -76,9 +89,11 @@ class Game:
                     combination = movement + attack
                     if combination == "SAK":
                         print(self.player2.name, 'conecta un' ,Action.REMUYUKEN2.description())
+                        self.player2.attack(self.player1,Remuyuken2())
 
                     elif combination == "ASAP":
                         print(self.player2.name, 'conecta un' ,Action.TALADOKEN2.description())
+                        self.player2.attack(self.player1,Taladoken2())
 
                     else:
                         if movement == "W":
@@ -92,8 +107,12 @@ class Game:
 
                         if attack == "P":
                             str= str + ' y golpea'
+                            self.player2.attack(self.player1,Puño())
+
                         elif attack == "K":
                             str= str + ' y patea'
+                            self.player2.attack(self.player1, Patada())
+
                         print(str)
                     c+=1
                     firstPlayer=self.player1
@@ -110,9 +129,11 @@ class Game:
                     combination = movement + attack
                     if combination == "SDK":
                         print(self.player1.name, 'conecta un', Action.REMUYUKEN.description())
+                        self.player1.attack(self.player2,Remuyuken())
 
                     elif combination == "DSDP":
                         print(self.player1.name, 'conecta un', Action.TALADOKEN.description())
+                        self.player1.attack(self.player2,Taladoken())
 
                     else:
                         if movement == "W":
@@ -126,8 +147,12 @@ class Game:
 
                         if attack == "P":
                             str = str + ' y golpea'
+                            self.player1.attack(self.player2,Puño())
+
                         elif attack == "K":
                             str = str + ' y patea'
+                            self.player1.attack(self.player2, Patada())
+
                         else:
                             str=str
                         print(str)
@@ -138,44 +163,6 @@ class Game:
 
 
 
-
-    def gameOver(self) -> None:
-        self.freeMemory()
-
-        self.gameResult.on_next(False)
-        self.gameResult.on_completed()
-    def freeMemory(self) -> None:
-        self.player1Disposable.dipose()
-        self.player2Disposable.dipose()
-
-
-
-    def winner(self) -> None:
-        self.freeMemory()
-        self.result.on_next(True)
-        self.result.on_completed()
-
-    def acceptEvent(self, event: 'Event') -> None:
-        event.visitGame(self)
-
-    def createJsonGame(self) -> None:
-        pass
-
-    def figthInteraction(self, playerAttack: 'Character', playerReceive: 'Character', movement: 'Movement') -> str:
-
-
-        playerAttack.attack(playerReceive, movement)
-        return "{} recibió daño".format(playerReceive.__str__())
-
-
-
-    def ifLiveCharacter(self) -> bool:
-
-        if self.player1.energyNow == 0 or self.player2.energyNow == 0:
-            return False
-
-        else:
-            return True
 
 
 
