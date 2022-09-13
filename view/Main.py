@@ -10,10 +10,7 @@ class Main:
 
         self.game= Game( TonynStallone(), ArnoldShuatseneguer(),battle)
 
-    def start(self) -> None:
-        self.Combat()
-        self.characterWinner()
-        self.game.start()
+
 
 
 

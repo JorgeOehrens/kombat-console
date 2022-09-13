@@ -7,18 +7,11 @@ import json
 
 class Game:
     def __init__(self, player1: 'Character', player2: 'Character', battle:json):
-
         self.player1= player1
         self.player2= player2
 
         self.player1Disposable = self.player1.eventNow.subscribe()
         self.player2Disposable = self.player2.eventNow.subscribe()
-
-        player1Movement=[]
-        player2Movement=[]
-
-        player1A=[]
-        player2Attack=[]
 
         self.result: Subject[bool]= Subject()
 
@@ -47,12 +40,56 @@ class Game:
         ValueListPlayer2 = len(joinList)
 
         if ValueListPlayer1 > ValueListPlayer2:
-            print ('Parte ' , self.player1.name)
+            print('Parte ', self.player1.name)
+            c=0
+
+            firstPlayer=self.player1
+            while self.player1.energyNow != 0 or self.player1.energyNow != 0:
+
+                if firstPlayer == self.player1:
+                    movement = player1Movements[c]
+                    attack = player1Attack[c]
+                    combination = movement + attack
+                    print(combination)
+
+                else:
+                    movement = player1Movements[c]
+                    attack = player1Attack[c]
+                    combination = movement + attack
+                    print(combination)
+
+
         else:
-            print ('Parte ',self.player2.name)
+            print('Parte ', self.player2.name)
+            c=0
+            firstPlayer=self.player2
+            while self.player1.energyNow != 0 or self.player1.energyNow != 0:
+
+                if firstPlayer == self.player2:
+                    movement = player2Movements[c]
+                    attack = player2Attack[c]
+                    combination = movement + attack
+                    print(combination)
+                else:
+                    movement = player1Movements[c]
+                    attack = player1Attack[c]
+                    combination = movement + attack
+                    print(combination)
+                c+=1
+
+
+
+
+    def gameOver(self) -> None:
+        self.freeMemory()
+
+        self.gameResult.on_next(False)
+        self.gameResult.on_completed()
     def freeMemory(self) -> None:
         self.player1Disposable.dipose()
         self.player2Disposable.dipose()
+
+
 
     def winner(self) -> None:
         self.freeMemory()
@@ -66,9 +103,9 @@ class Game:
         pass
 
     def figthInteraction(self, playerAttack: 'Character', playerReceive: 'Character', movement: 'Movement') -> str:
+
+
         playerAttack.attack(playerReceive, movement)
-
-
         return "{} recibió daño".format(playerReceive.__str__())
 
 

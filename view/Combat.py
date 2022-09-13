@@ -13,9 +13,10 @@ class Combat:
         while self.game.ifLiveCharacter():
             print(' {} esta atacando'.format(self.player1))
     def turnoJugador(self) -> None:
-
         print(self.jugador.__str__())
         self.optionsActions()
+
+
 
 
     def optionsActions(self)-> 'Action':
