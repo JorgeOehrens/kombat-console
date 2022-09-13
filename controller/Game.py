@@ -56,10 +56,10 @@ class Game:
         ValueListPlayer2 = len(joinList)
 
         if ValueListPlayer1 > ValueListPlayer2:
-            print('Parte ', self.player1.name)
+            print('Parte ', self.player2.name)
             c=0
 
-            firstPlayer=self.player1
+            firstPlayer=self.player2
             while self.player1.energyNow != 0 or self.player1.energyNow != 0:
 
                 if firstPlayer == self.player1:
@@ -132,14 +132,18 @@ class Game:
                         print(str)
                     c += 1
                     firstPlayer = self.player1
+            if self.player1.energyNow == 0:
+                print(self.player2.name , ' Gana la pelea y aún le queda ', self.player2.energyNow , ' de energía')
+            else:
+                print(self.player1.name, ' Gana la pelea y aún le queda ', self.player1.energyNow, ' de energía')
 
 
 
         else:
-            print('Parte ', self.player2.name)
+            print('Parte ', self.player1.name)
             c=0
             c2=0
-            firstPlayer=self.player2
+            firstPlayer=self.player1
             while self.player1.energyNow != 0 or self.player1.energyNow != 0:
 
                 if firstPlayer == self.player2:
@@ -218,6 +222,11 @@ class Game:
                     firstPlayer = self.player2
 
                     c2+=1
+            if self.player1.energyNow == 0:
+                print(self.player2.name , ' Gana la pelea y aún le queda ', self.player2.energyNow , ' de energía')
+            else:
+                print(self.player1.name, ' Gana la pelea y aún le queda ', self.player1.energyNow, ' de energía')
+
 
 
 
