@@ -63,17 +63,75 @@ class Game:
             while self.player1.energyNow != 0 or self.player1.energyNow != 0:
 
                 if firstPlayer == self.player1:
-                    movement = player1Movements[c]
-                    attack = player1Attack[c]
+                    movement = player1Movements[c2]
+                    attack = player1Attack[c2]
                     combination = movement + attack
-                    if combination == "DSDP":
-                        print(Action.REMUYUKEN.description())
+                    if combination == "SDK":
+                        print(self.player1.name, 'conecta un', Action.REMUYUKEN.description())
+                        self.player1.attack(self.player2, Remuyuken())
+
+                    elif combination == "DSDP":
+                        print(self.player1.name, 'conecta un', Action.TALADOKEN.description())
+                        self.player1.attack(self.player2, Taladoken())
+
+                    else:
+                        if movement == "W":
+                            str = self.player1.name + ' salta '
+                        elif movement == "S":
+                            str = self.player1.name + ' se agacha'
+                        elif movement == "A":
+                            str = self.player1.name + ' avanza a la izquierda'
+                        else:
+                            str = self.player1.name + ' avanza a la derecha'
+
+                        if attack == "P":
+                            str = str + ' y golpea'
+                            self.player1.attack(self.player2, Puño())
+
+                        elif attack == "K":
+                            str = str + ' y patea'
+                            self.player1.attack(self.player2, Patada())
+
+                        else:
+                            str = str
+                        print(str)
+                    firstPlayer = self.player2
+
+                    c2 += 1
 
                 else:
-                    movement = player1Movements[c]
-                    attack = player1Attack[c]
+                    movement = player2Movements[c]
+                    attack = player2Attack[c]
                     combination = movement + attack
-                    print(combination)
+                    if combination == "SAK":
+                        print(self.player2.name, 'conecta un', Action.REMUYUKEN2.description())
+                        self.player2.attack(self.player1, Remuyuken2())
+
+                    elif combination == "ASAP":
+                        print(self.player2.name, 'conecta un', Action.TALADOKEN2.description())
+                        self.player2.attack(self.player1, Taladoken2())
+
+                    else:
+                        if movement == "W":
+                            str = self.player2.name + ' salta '
+                        elif movement == "S":
+                            str = self.player2.name + ' se agacha'
+                        elif movement == "A":
+                            str = self.player2.name + ' avanza a la izquierda'
+                        else:
+                            str = self.player2.name + ' avanza a la derecha'
+
+                        if attack == "P":
+                            str = str + ' y golpea'
+                            self.player2.attack(self.player1, Puño())
+
+                        elif attack == "K":
+                            str = str + ' y patea'
+                            self.player2.attack(self.player1, Patada())
+
+                        print(str)
+                    c += 1
+                    firstPlayer = self.player1
 
 
         else:
