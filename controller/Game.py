@@ -4,7 +4,9 @@ from rx.subject import Subject
 from models.events.Event import *
 from models.movements.Movement import *
 import json
+from typing import List
 
+from view.Action import Action
 class Game:
     def __init__(self, player1: 'Character', player2: 'Character', battle:json):
         self.player1= player1
@@ -18,6 +20,7 @@ class Game:
         self.nextMovement: Subject[str]= Subject()
 
         self.battle = battle
+
 
         content = battle.read()
 
@@ -50,7 +53,8 @@ class Game:
                     movement = player1Movements[c]
                     attack = player1Attack[c]
                     combination = movement + attack
-                    print(combination)
+                    if combination == "DSDP":
+                        print(Action.REMUYUKEN.description())
 
                 else:
                     movement = player1Movements[c]
@@ -69,7 +73,34 @@ class Game:
                     movement = player2Movements[c]
                     attack = player2Attack[c]
                     combination = movement + attack
-                    print(combination)
+                    if combination == "SAK":
+                        print(self.player2.name, 'conecta un' ,Action.REMUYUKEN2.description())
+
+                    elif combination == "ASAP":
+                        print(self.player2.name, 'conecta un' ,Action.TALADOKEN2.description())
+
+                    else:
+                        if movement == "W":
+                            str=self.player2.name + ' salta '
+                        elif movement == "S":
+                            str= self.player2.name + ' se agacha'
+                        elif movement == "A":
+                            str = self.player2.name + ' avanza a la izquierda'
+                        else:
+                            str = self.player2.name + ' avanza a la derecha'
+
+                        if attack == "P":
+                            str= str + ' y golpea'
+                        elif attack == "K":
+                            str= str + ' y patea'
+                        print(str)
+
+
+
+
+
+
+
                 else:
                     movement = player1Movements[c]
                     attack = player1Attack[c]

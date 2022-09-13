@@ -8,7 +8,7 @@ class Main:
     def __init__(self):
         battle = open("Fight/fight1.json", "r")
 
-        self.game= Game( TonynStallone(), ArnoldShuatseneguer(),battle)
+        self.game= Game(TonynStallone(),ArnoldShuatseneguer(),battle)
 
 
 

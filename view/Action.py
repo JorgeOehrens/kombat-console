@@ -1,5 +1,5 @@
 from enum import Enum
-
+from models.characters.Character import *
 
 class Action(Enum):
     ARRIBA= "W"
@@ -33,7 +33,7 @@ class Action(Enum):
         elif self == self.REMUYUKEN:
             return "Remuyuken"
         elif self == self.REMUYUKEN2:
-            return "REMUYUKEN"
+            return "El jugador Remuyuken"
         else:
             raise Exception("Movimiento no valido")
 
@@ -57,7 +57,7 @@ class Action(Enum):
         elif self == self.REMUYUKEN:
             return "Remuyuken"
         elif self == self.REMUYUKEN2:
-            return "REMUYUKEN"
+            return "Remuyuken"
         else:
             raise Exception("Movimiento no valido")
 
