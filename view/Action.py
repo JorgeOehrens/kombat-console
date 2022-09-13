@@ -33,7 +33,7 @@ class Action(Enum):
         elif self == self.REMUYUKEN:
             return "Remuyuken"
         elif self == self.REMUYUKEN2:
-            return "El jugador Remuyuken"
+            return "Remuyuken"
         else:
             raise Exception("Movimiento no valido")
 

@@ -134,6 +134,7 @@ class Game:
                     firstPlayer = self.player1
 
 
+
         else:
             print('Parte ', self.player2.name)
             c=0
