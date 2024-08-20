@@ -1,5 +1,5 @@
-# Kombat-JRPG
-Development of Kombat JRPG, using MVC software architectural pattern and PyCharm environment.
+# Kombat Console
+Development of Kombat Console, using MVC software architectural pattern and PyCharm environment.
 
 
 # Test json 1
