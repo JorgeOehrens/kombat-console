@@ -1,4 +1,4 @@
-# Talana-Kombat-JRPG
+# Kombat-JRPG
 Development of Talana Kombat JRPG, using MVC software architectural pattern and PyCharm environment.
 
 
